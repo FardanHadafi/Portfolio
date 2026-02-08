@@ -77,7 +77,7 @@
     <!--Left Section-->
     <div class="w-1/2 flex flex-col justify-center items-center font-mono text-2xl">
       <h1>Hi ! Welcome to my Portfolio Website</h1>
-      <p class="text-center">I am a Fullstack Developer specializing in build type-safe, ultra-fast applications with a focus on clean architecture and modern user experiences.</p>
+      <p class="text-center text-h1">I am a Fullstack Developer specializing in build type-safe, ultra-fast applications with a focus on clean architecture and modern user experiences.</p>
     </div>
     <!--Right Section-->
     <div class="w-1/2 flex justify-center items-center">My Photo</div>
@@ -88,8 +88,8 @@
     <div class="flex flex-col gap-4 font-mono text-xl text-center max-w-4xl">
       <h1>I am a Fullstack Developer obsessed with performance and developer experience.</h1>
       <h1>I specialize in the modern web ecosystem, moving away from bloated frameworks in favor of speed and simplicity.</h1>
-      <h1>My stack of choice includes SvelteKit 2 and Svelte 5 for building lightning-fast user interfaces, paired with Hono or Go for robust, high-throughput backends.</h1>
-      <h1>I enjoy the challenge of full-stack development—handling everything from database optimization to the final pixel on the screen.</h1>
+      <h1 class="text-h1">My stack of choice includes SvelteKit 2 and Svelte 5 for building lightning-fast user interfaces, paired with Hono or Go for robust, high-throughput backends.</h1>
+      <h1 class="text-h1">I enjoy the challenge of full-stack development—handling everything from database optimization to the final pixel on the screen.</h1>
     </div>
   </section>
 
@@ -147,7 +147,7 @@
 
             <!-- Content -->
             <div class="space-y-5">
-              <h3 class="text-2xl font-semibold">
+              <h3 class="text-2xl font-semibold text-h1">
                 {project.title}
               </h3>
 
