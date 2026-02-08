@@ -1,4 +1,6 @@
 <script lang="ts">
+  import NihongoLab from "./assets/nihongolab.png"
+
   let currentIndex = $state(0);
 
   const projects = [
@@ -6,7 +8,7 @@
       title: "NihongoLab",
       description:
         "NihongoLab is a Japanese learning web application designed for beginners. It helps learners understand basic vocabulary, writing systems, and essential grammar through simple explanations and interactive practice.",
-      image: "/projects/nihongolab.png",
+      image: NihongoLab,
       tech: ["SvelteKit", "CSS", "Hono", "PostgreSQL"],
       demo: "https://nihongo-lab-web.vercel.app/",
       source: "https://github.com/FardanHadafi/NihongoLab",
@@ -15,7 +17,7 @@
       title: "NihongoLab",
       description:
         "NihongoLab is a Japanese learning web application designed for beginners. It helps learners understand basic vocabulary, writing systems, and essential grammar through simple explanations and interactive practice.",
-      image: "/projects/nihongolab.png",
+      image: NihongoLab,
       tech: ["SvelteKit", "CSS", "Hono", "PostgreSQL"],
       demo: "https://nihongo-lab-web.vercel.app/",
       source: "https://github.com/FardanHadafi/NihongoLab",
@@ -24,12 +26,26 @@
       title: "NihongoLab",
       description:
         "NihongoLab is a Japanese learning web application designed for beginners. It helps learners understand basic vocabulary, writing systems, and essential grammar through simple explanations and interactive practice.",
-      image: "/projects/nihongolab.png",
+      image: NihongoLab,
       tech: ["SvelteKit", "CSS", "Hono", "PostgreSQL"],
       demo: "https://nihongo-lab-web.vercel.app/",
       source: "https://github.com/FardanHadafi/NihongoLab",
     },
   ];
+
+  const techColors: Record<string, {bg: string}> = {
+    "SvelteKit": {bg: "#FF3E00"},
+    "CSS": {bg: "#1572B6"},
+    "Tailwind": {bg: "#06B6D4"},
+    "Hono": {bg: "#E36002"},
+    "Go": {bg: "#00ADD8"},
+    "PostgreSQL": {bg: "#336791"}
+  };
+
+  function getTechStyle(tech: string) {
+    const colors = techColors[tech];
+    return `background-color: ${colors.bg};`
+  }
 
   function next() {
     currentIndex = currentIndex === projects.length - 1 ? 0 : currentIndex + 1;
@@ -42,14 +58,14 @@
 
 <!--Header Section-->
 <header>
-  <div id="home" class="flex justify-between items-center border border-amber-300 h-16">
-    <h1 class="ml-20 text-2xl">Fardan Hadafi</h1>
-    <nav class="border border-black mr-20">
-      <ul class="flex justify-between items-center gap-20 border border-blue-500 text-xl">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <div id="home" class="flex justify-between items-center h-16 bg-navbar text-texts">
+    <h1 class="ml-20 text-2xl font-mono hover:text-projects transition-colors drop-shadow-neutral-300">Fardan Hadafi</h1>
+    <nav class="mr-20">
+      <ul class="flex justify-between items-center gap-20 text-xl font-mono">
+        <li><a href="#home" class="hover:text-projects transition-colors drop-shadow-neutral-300">Home</a></li>
+        <li><a href="#about" class="hover:text-projects transition-colors drop-shadow-neutral-300">About</a></li>
+        <li><a href="#projects" class="hover:text-projects transition-colors drop-shadow-neutral-300">Projects</a></li>
+        <li><a href="#contact" class="hover:text-projects transition-colors drop-shadow-neutral-300">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -57,28 +73,29 @@
 
 <main>
   <!--Hero Section-->
-  <section class="flex h-[calc(100vh-4rem)]">
+  <section class="flex h-[calc(100vh-4rem)] bg-hero text-texts">
     <!--Left Section-->
-    <div class="border border-red-500 w-1/2 flex flex-col justify-center items-center">
+    <div class="w-1/2 flex flex-col justify-center items-center font-mono text-2xl">
       <h1>Hi ! Welcome to my Portfolio Website</h1>
-      <h2>High-Performance Web Solutions, Engineered for Scale.</h2>
-      <p class="text-center">I am a Fullstack Developer specializing in the Svelte and Go ecosystems. I build type-safe, ultra-fast applications with a focus on clean architecture and modern user experiences.</p>
+      <p class="text-center">I am a Fullstack Developer specializing in build type-safe, ultra-fast applications with a focus on clean architecture and modern user experiences.</p>
     </div>
     <!--Right Section-->
-    <div class="border border-b-cyan-500 w-1/2 flex justify-center items-center">My Photo</div>
+    <div class="w-1/2 flex justify-center items-center">My Photo</div>
   </section>
 
   <!--About Section-->
-  <section id="about" class="flex h-[calc(50vh)] border border-black">
-    <div class="flex justify-center items-center flex-col border border-fuchsia-500">
-      <h1>I am a Fullstack Developer obsessed with performance and developer experience. I specialize in the modern web ecosystem, moving away from bloated frameworks in favor of speed and simplicity.</h1>
-      <h1 class="text-center">My stack of choice includes SvelteKit 2 and Svelte 5 for building lightning-fast user interfaces, paired with Hono or Go for robust, high-throughput backends. I enjoy the challenge of full-stack development—handling everything from database optimization to the final pixel on the screen—ensuring that the applications I build are not just functional, but exceptionally fast.</h1>
+  <section id="about" class="flex h-[calc(50vh)] justify-center items-center bg-about text-texts">
+    <div class="flex flex-col gap-4 font-mono text-xl text-center max-w-4xl">
+      <h1>I am a Fullstack Developer obsessed with performance and developer experience.</h1>
+      <h1>I specialize in the modern web ecosystem, moving away from bloated frameworks in favor of speed and simplicity.</h1>
+      <h1>My stack of choice includes SvelteKit 2 and Svelte 5 for building lightning-fast user interfaces, paired with Hono or Go for robust, high-throughput backends.</h1>
+      <h1>I enjoy the challenge of full-stack development—handling everything from database optimization to the final pixel on the screen.</h1>
     </div>
   </section>
 
   <!--Projects Section-->
-  <section id="projects" class="flex h-[calc(65vh)] justify-center py-5">
-  <div class="w-[95%] max-w-7xl space-y-12">
+  <section id="projects" class="flex h-[calc(65vh)] justify-center py-5 bg-navbar text-texts">
+  <div class="w-[95%] max-w-7xl space-y-12 font-mono">
     <!-- Header -->
     <div class="flex items-end justify-between">
       <div>
@@ -95,14 +112,14 @@
         <button
           onclick={prev}
           aria-label="Previous project"
-          class="rounded-xl border border-black px-4 py-2 text-sm hover:bg-black hover:text-white transition"
+          class="rounded-xl border border-black px-4 py-2 text-sm hover:bg-projects hover:text-white transition font-semibold cursor-pointer"
         >
           Prev
         </button>
         <button
           onclick={next}
           aria-label="Next project"
-          class="rounded-xl border border-black px-4 py-2 text-sm hover:bg-black hover:text-white transition"
+          class="rounded-xl border border-black px-4 py-2 text-sm hover:bg-projects hover:text-white transition font-semibold cursor-pointer"
         >
           Next
         </button>
@@ -134,13 +151,13 @@
                 {project.title}
               </h3>
 
-              <p class="leading-relaxed">
+              <p class="leading-relaxed font-semibold">
                 {project.description}
               </p>
 
               <ul class="flex flex-wrap gap-3 text-xs">
                 {#each project.tech as t}
-                  <li class="rounded-full border border-black px-3 py-1">
+                  <li class="rounded-full border border-black px-3 py-1 font-semibold text-white" style={getTechStyle(t)}>
                     {t}
                   </li>
                 {/each}
@@ -149,13 +166,13 @@
               <div class="flex gap-4 pt-2">
                 <a
                   href={project.demo}
-                  class="inline-flex items-center justify-center rounded-xl border border-black px-5 py-2 text-sm hover:bg-black hover:text-white transition"
+                  class="inline-flex items-center justify-center rounded-xl border border-black px-5 py-2 text-sm hover:bg-projects hover:text-white transition font-semibold"
                 >
                   Live Demo
                 </a>
                 <a
                   href={project.source}
-                  class="inline-flex items-center justify-center rounded-xl border border-black px-5 py-2 text-sm hover:text-white hover:border-black hover:bg-black transition"
+                  class="inline-flex items-center justify-center rounded-xl border border-black px-5 py-2 text-sm hover:text-white hover:border-black hover:bg-projects transition font-semibold"
                 >
                   Source Code
                 </a>
@@ -178,12 +195,12 @@
 </main>
 
 <!--Footer Section-->
-<footer id="contact" class="flex h-[calc(35vh)] justify-center border-t border-black py-12">
+<footer id="contact" class="flex h-[calc(35vh)] justify-center py-12 bg-projects text-texts">
   <div class="w-[95%] max-w-7xl flex flex-col gap-10 mt-10">
     <!-- Top -->
     <div class="flex flex-col md:flex-row justify-between gap-10">
       <!-- Identity -->
-      <div class="space-y-3 max-w-md">
+      <div class="space-y-3 max-w-md font-mono">
         <h2 class="text-2xl font-semibold">
           Fardan Hadafi
         </h2>
@@ -195,7 +212,7 @@
 
       <!-- Navigation -->
       <nav aria-label="Footer navigation">
-        <ul class="flex flex-col gap-3 text-sm">
+        <ul class="flex flex-col gap-3 text-sm font-mono">
           <li><a href="#home" class="hover:underline">Home</a></li>
           <li><a href="#about" class="hover:underline">About</a></li>
           <li><a href="#projects" class="hover:underline">Projects</a></li>
@@ -203,7 +220,7 @@
       </nav>
 
       <!-- Contact -->
-      <div class="space-y-3">
+      <div class="space-y-3 font-mono">
         <p class="text-sm font-medium">Get in touch</p>
         <ul class="flex flex-col gap-2 text-sm">
           <li>
@@ -236,11 +253,10 @@
           </li>
         </ul>
       </div>
-
     </div>
 
     <!-- Bottom -->
-    <div class="flex flex-col md:flex-row justify-between items-center gap-4 border-t border-black pt-6 text-xs">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 border-t border-black pt-6 text-xs font-mono">
       <p>
         © {new Date().getFullYear()} Fardan Hadafi. All rights reserved.
       </p>

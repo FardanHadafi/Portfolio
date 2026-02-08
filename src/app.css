@@ -1,5 +1,14 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 @theme {
-  --color-cream: #ffddd0;
+  /* Define font families */
+  --font-sans: "Work Sans", system-ui, sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, monospace;
+
+  --color-navbar: #fff5e4;
+  --color-hero: #ffe3e1;
+  --color-about: #ffd1d1;
+  --color-projects: #ff9494;
+  --color-texts: #562b08;
 }
