@@ -157,7 +157,7 @@
 
               <ul class="flex flex-wrap gap-3 text-xs">
                 {#each project.tech as t}
-                  <li class="rounded-full border border-black px-3 py-1 font-semibold text-white" style={getTechStyle(t)}>
+                  <li class="rounded-full px-3 py-1 font-semibold text-white" style={getTechStyle(t)}>
                     {t}
                   </li>
                 {/each}
