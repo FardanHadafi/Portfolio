@@ -2,7 +2,9 @@
   import { onMount } from "svelte";
   import gsap from "gsap";
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+  import {ScrambleTextPlugin} from "gsap/ScrambleTextPlugin"
   import NihongoLab from "./assets/nihongolab.png"
+  import { SplitText } from "gsap/SplitText";
 
   let currentIndex = $state(0);
 
@@ -58,10 +60,6 @@
     currentIndex = currentIndex === 0 ? projects.length - 1 : currentIndex - 1;
   }
 
-  onMount(() => {
-    gsap.registerPlugin(ScrollToPlugin);
-  });
-
   function handleScroll(e: MouseEvent) {
     e.preventDefault();
     const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
@@ -69,6 +67,49 @@
       gsap.to(window, { duration: 0.7, scrollTo: { y: href, offsetY: 64 }, ease: "power2" });
     }
   }
+
+  onMount(() => {
+    gsap.registerPlugin(ScrollToPlugin, ScrambleTextPlugin, SplitText);
+
+    gsap.to("#hero-h", {
+      duration: 3,
+      scrambleText: "Hi ! Welcome to my Portfolio Website"
+    })
+
+    let split = SplitText.create("#hero-p", {
+      type: "words",
+      mask: "words",
+      autoSplit: true,
+        onSplit(self) {
+          return gsap.from(self.words, {
+            duration: 2, 
+            y: 100, 
+            autoAlpha: 0, 
+            stagger: 0.05
+        });
+      }
+    })
+
+    let split2 = SplitText.create("#about", {
+      type: "words, lines",
+      autoSplit: true,
+        onSplit(self) {
+          return gsap.from(self.words, {
+            y: -100,
+            opacity: 0,
+            rotation: "random(-80, 80)",
+            duration: 0.7, 
+            ease: "circ.inOut",
+            stagger: 0.15
+          })
+        }
+    })
+
+    return () => {
+      split.revert();
+      split2.revert();
+    }
+  });
 </script>
 
 <!--Header Section-->
@@ -91,8 +132,8 @@
   <section id="home" class="flex h-[calc(100vh)] bg-hero text-texts scroll-mt-16">
     <!--Left Section-->
     <div class="w-1/2 flex flex-col justify-center items-center font-mono text-2xl">
-      <h1>Hi ! Welcome to my Portfolio Website</h1>
-      <p class="text-center text-h1">I am a Fullstack Developer specializing in build type-safe, ultra-fast applications with a focus on clean architecture and modern user experiences.</p>
+      <h1 id="hero-h">Hi ! Welcome to my Portfolio Website</h1>
+      <p id="hero-p" class="text-center text-h1">I am a Fullstack Developer specializing in build type-safe, ultra-fast applications with a focus on clean architecture and modern user experiences.</p>
     </div>
     <!--Right Section-->
     <div class="w-1/2 flex justify-center items-center">My Photo</div>
@@ -244,6 +285,16 @@
               class="hover:underline"
             >
               fardan.hadafi@yahoo.com
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://wa.me/6285713101837"
+              class="hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              +(62)85713101837
             </a>
           </li>
           <li>
