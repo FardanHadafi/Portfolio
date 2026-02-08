@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+  import gsap from "gsap";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
   import NihongoLab from "./assets/nihongolab.png"
 
   let currentIndex = $state(0);
@@ -54,18 +57,30 @@
   function prev() {
     currentIndex = currentIndex === 0 ? projects.length - 1 : currentIndex - 1;
   }
+
+  onMount(() => {
+    gsap.registerPlugin(ScrollToPlugin);
+  });
+
+  function handleScroll(e: MouseEvent) {
+    e.preventDefault();
+    const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
+    if (href) {
+      gsap.to(window, { duration: 0.7, scrollTo: { y: href, offsetY: 64 }, ease: "power2" });
+    }
+  }
 </script>
 
 <!--Header Section-->
-<header>
-  <div id="home" class="flex justify-between items-center h-16 bg-navbar text-texts">
+<header class="fixed top-0 right-0 left-0 z-10">
+  <div class="flex justify-between items-center h-16 bg-navbar text-texts">
     <h1 class="ml-20 text-2xl font-mono hover:text-projects transition-colors drop-shadow-neutral-300">Fardan Hadafi</h1>
     <nav class="mr-20">
       <ul class="flex justify-between items-center gap-20 text-xl font-mono">
-        <li><a href="#home" class="hover:text-projects transition-colors drop-shadow-neutral-300">Home</a></li>
-        <li><a href="#about" class="hover:text-projects transition-colors drop-shadow-neutral-300">About</a></li>
-        <li><a href="#projects" class="hover:text-projects transition-colors drop-shadow-neutral-300">Projects</a></li>
-        <li><a href="#contact" class="hover:text-projects transition-colors drop-shadow-neutral-300">Contact</a></li>
+        <li><a href="#home" onclick={handleScroll} class="hover:text-projects transition-colors drop-shadow-neutral-300">Home</a></li>
+        <li><a href="#about" onclick={handleScroll} class="hover:text-projects transition-colors drop-shadow-neutral-300">About</a></li>
+        <li><a href="#projects" onclick={handleScroll} class="hover:text-projects transition-colors drop-shadow-neutral-300">Projects</a></li>
+        <li><a href="#contact" onclick={handleScroll} class="hover:text-projects transition-colors drop-shadow-neutral-300">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -73,7 +88,7 @@
 
 <main>
   <!--Hero Section-->
-  <section class="flex h-[calc(100vh-4rem)] bg-hero text-texts">
+  <section id="home" class="flex h-[calc(100vh)] bg-hero text-texts scroll-mt-16">
     <!--Left Section-->
     <div class="w-1/2 flex flex-col justify-center items-center font-mono text-2xl">
       <h1>Hi ! Welcome to my Portfolio Website</h1>
@@ -84,7 +99,7 @@
   </section>
 
   <!--About Section-->
-  <section id="about" class="flex h-[calc(50vh)] justify-center items-center bg-about text-texts">
+  <section id="about" class="flex h-[calc(50vh)] justify-center items-center bg-about text-texts scroll-mt-16">
     <div class="flex flex-col gap-4 font-mono text-xl text-center max-w-4xl">
       <h1>I am a Fullstack Developer obsessed with performance and developer experience.</h1>
       <h1>I specialize in the modern web ecosystem, moving away from bloated frameworks in favor of speed and simplicity.</h1>
@@ -94,7 +109,7 @@
   </section>
 
   <!--Projects Section-->
-  <section id="projects" class="flex h-[calc(65vh)] justify-center py-5 bg-navbar text-texts">
+  <section id="projects" class="flex h-[calc(62vh)] justify-center py-5 bg-navbar text-texts scroll-mt-16">
   <div class="w-[95%] max-w-7xl space-y-12 font-mono">
     <!-- Header -->
     <div class="flex items-end justify-between">
@@ -129,7 +144,7 @@
     <!-- Slider -->
     <div class="overflow-hidden">
       <div
-        class="flex transition-transform duration-500 ease-out"
+        class="flex transition-transform duration-800 ease-in-out"
         style="transform: translateX(-{currentIndex * 100}%);"
       >
         {#each projects as project}
@@ -195,7 +210,7 @@
 </main>
 
 <!--Footer Section-->
-<footer id="contact" class="flex h-[calc(35vh)] justify-center py-12 bg-projects text-texts">
+<footer id="contact" class="flex h-[calc(35vh)] justify-center py-12 bg-projects text-texts scroll-mt-16">
   <div class="w-[95%] max-w-7xl flex flex-col gap-10 mt-10">
     <!-- Top -->
     <div class="flex flex-col md:flex-row justify-between gap-10">
@@ -213,9 +228,9 @@
       <!-- Navigation -->
       <nav aria-label="Footer navigation">
         <ul class="flex flex-col gap-3 text-sm font-mono">
-          <li><a href="#home" class="hover:underline">Home</a></li>
-          <li><a href="#about" class="hover:underline">About</a></li>
-          <li><a href="#projects" class="hover:underline">Projects</a></li>
+          <li><a href="#home" onclick={handleScroll} class="hover:underline">Home</a></li>
+          <li><a href="#about" onclick={handleScroll} class="hover:underline">About</a></li>
+          <li><a href="#projects" onclick={handleScroll} class="hover:underline">Projects</a></li>
         </ul>
       </nav>
 
