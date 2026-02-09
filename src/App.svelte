@@ -85,21 +85,32 @@
 
     gsap.to("#hero-h", {
       duration: 3,
-      scrambleText: "Hi ! Welcome to my Portfolio Website"
-    })
+      scrambleText: "Hi ! Welcome to my Portfolio Website",
+        scrollTrigger: {
+          trigger: "#home",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play reverse play reverse"
+        }
+    });
 
     let split = SplitText.create("#hero-p", {
       type: "words",
       autoSplit: true,
-        onSplit(self) {
-          return gsap.from(self.words, {
-            duration: 2, 
-            y: 100, 
-            autoAlpha: 0, 
-            stagger: 0.05
-        });
-      }
-    })
+    });
+
+    gsap.from(split.words, {
+      duration: 2,
+      y: 100,
+      autoAlpha: 0,
+      stagger: 0.05,
+        scrollTrigger: {
+          trigger: "#home",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play reverse play reverse"
+        }
+    });
 
     gsap.from(".about-h", {
       y: 50,
@@ -110,7 +121,8 @@
         scrollTrigger: {
           trigger: "#about",
           start: "top 80%",
-          toggleActions: "play pause resume reset"
+          end: "bottom 20%",
+          toggleActions: "play reverse play reverse"
         }
     });
 
@@ -123,7 +135,8 @@
         scrollTrigger: {
           trigger: "#projects",
           start: "top 80%",
-          toggleActions: "play pause resume reset"
+          end: "bottom 20%",
+          toggleActions: "play reverse play reverse"
         }
     });
 
@@ -136,7 +149,8 @@
         scrollTrigger: {
           trigger: "#projects",
           start: "top 80%",
-          toggleActions: "play pause resume reset"
+          end: "bottom 20%",
+          toggleActions: "play reverse play reverse"
         }
     });
 
@@ -150,7 +164,8 @@
         scrollTrigger: {
           trigger: "#projects",
           start: "top 80%",
-          toggleActions: "play pause resume reset"
+          end: "bottom 20%",
+          toggleActions: "play reverse play reverse"
         }
     });
 
@@ -163,7 +178,8 @@
         scrollTrigger: {
           trigger: "#projects",
           start: "top 80%",
-          toggleActions: "play pause resume reset"
+          end: "bottom 20%",
+          toggleActions: "play reverse play reverse"
         }
     });
 
@@ -186,7 +202,8 @@
         scrollTrigger: {
           trigger: "#contact",
           start: "top 80%",
-          toggleActions: "play pause resume reset"
+          end: "bottom 20%",
+          toggleActions: "play reverse play reverse"
         }
     });
 
@@ -198,9 +215,10 @@
       stagger: 0.2,
       delay: 0.4,
         scrollTrigger: {
-          trigger: "#projects",
+          trigger: "#contact",
           start: "top 80%",
-          toggleActions: "play pause resume reset"
+          end: "bottom 20%",
+          toggleActions: "play reverse play reverse"
         }
     });
 
