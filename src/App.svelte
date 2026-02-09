@@ -437,6 +437,15 @@
               Discord
             </a>
           </li>
+          <li>
+            <a href="https://resume-delta-one-23.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:underline"
+            >
+              Resume
+            </a>
+          </li>
         </ul>
       </div>
     </div>
