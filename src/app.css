@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 @theme {
   /* Define font families */
@@ -12,4 +11,8 @@
   --color-projects: #ff9494;
   --color-texts: #562b08;
   --color-h1: #ff5b5b;
+}
+
+body {
+  font-family: var(--font-sans);
 }
