@@ -122,7 +122,7 @@
       stagger: 0.2,
         scrollTrigger: {
           trigger: "#projects",
-          start: "top 90%",
+          start: "top 80%",
           toggleActions: "play pause resume reset"
         }
     });
@@ -135,7 +135,7 @@
       stagger: 0.2,
         scrollTrigger: {
           trigger: "#projects",
-          start: "top 90%",
+          start: "top 80%",
           toggleActions: "play pause resume reset"
         }
     });
@@ -149,7 +149,7 @@
       delay: 0.5,
         scrollTrigger: {
           trigger: "#projects",
-          start: "top 90%",
+          start: "top 80%",
           toggleActions: "play pause resume reset"
         }
     });
@@ -162,7 +162,7 @@
       stagger: 0.2,
         scrollTrigger: {
           trigger: "#projects",
-          start: "top 90%",
+          start: "top 80%",
           toggleActions: "play pause resume reset"
         }
     });
@@ -185,7 +185,7 @@
       stagger: 0.2,
         scrollTrigger: {
           trigger: "#contact",
-          start: "top 90%",
+          start: "top 80%",
           toggleActions: "play pause resume reset"
         }
     });
@@ -199,7 +199,7 @@
       delay: 0.4,
         scrollTrigger: {
           trigger: "#projects",
-          start: "top 90%",
+          start: "top 80%",
           toggleActions: "play pause resume reset"
         }
     });
