@@ -6,7 +6,8 @@
   import { ScrollSmoother } from "gsap/ScrollSmoother";
   import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
   import { SplitText } from "gsap/SplitText";
-  import NihongoLab from "./assets/nihongolab.png"; 
+  import NihongoLab from "./assets/nihongolab.png";
+  import MyPhoto from "./assets/My Photo.png";
 
   let currentIndex = $state(0);
   let mobileMenuOpen = $state(false);
@@ -129,6 +130,20 @@
       y: 100,
       autoAlpha: 0,
       stagger: 0.05,
+      scrollTrigger: {
+        trigger: "#home",
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play reverse play reverse"
+      }
+    });
+
+    // Photo animation
+    gsap.from(".photo-container", {
+      scale: 0.8,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: "#home",
         start: "top 80%",
@@ -267,10 +282,28 @@
           </div>
         </div>
 
-        <!-- Right: Photo Placeholder -->
-        <div class="w-full md:w-1/2 flex justify-center items-center bg-gray-50/50 py-12 md:py-0 order-1 md:order-2">
-          <div class="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 bg-gray-200 rounded-full animate-pulse flex items-center justify-center text-gray-400 font-mono text-center text-sm px-4">
-            Photo Coming Soon
+        <!-- Right: Photo -->
+        <div class="w-full md:w-1/2 flex justify-center items-center bg-linear-to-br from-gray-50 to-white py-12 md:py-0 order-1 md:order-2">
+          <div class="relative group photo-container">
+            <!-- Decorative border element -->
+            <div class="absolute -inset-4 border-2 border-black rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+            
+            <!-- Photo container -->
+            <div class="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border-2 border-black shadow-xl">
+              <img 
+                src={MyPhoto} 
+                alt="Fardan Hadafi - Fullstack Developer" 
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              
+              <!-- Subtle overlay on hover -->
+              <div class="absolute inset-0 bg-projects opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+            </div>
+            
+            <!-- Tech stack indicator -->
+            <div class="absolute -bottom-3 -right-3 bg-white border-2 border-black rounded-full px-4 py-2 text-xs font-mono font-bold shadow-lg">
+              <span class="text-[#FF3E00]">Svelte</span> + <span class="text-[#00ADD8]">Go</span>
+            </div>
           </div>
         </div>
       </section>
