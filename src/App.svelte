@@ -302,7 +302,7 @@
             
             <!-- Tech stack indicator -->
             <div class="absolute -bottom-3 -right-3 bg-white border-2 border-black rounded-full px-4 py-2 text-xs font-mono font-bold shadow-lg">
-              <span class="text-[#FF3E00]">Svelte</span> + <span class="text-[#00ADD8]">Go</span>
+              <span class="text-[#FF3E00]">Svelte</span> + <span class="text-[#E36002]">Hono</span>
             </div>
           </div>
         </div>
@@ -452,7 +452,7 @@
         <!-- Copyright -->
         <div class="border-t border-black/20 pt-4 md:pt-6 text-xs font-mono footer-bottom flex flex-col sm:flex-row justify-between gap-2 sm:gap-0">
           <p>© {new Date().getFullYear()} Fardan Hadafi.</p>
-          <p>Freelance Fullstack Developer.</p>
+          <p>Fullstack Developer.</p>
         </div>
       </div>
     </footer>
