@@ -20,12 +20,12 @@
     },
     {
       title: "Backend & API Design",
-      desc: "Robust RESTful APIs built with Hono or Go. Focused on high concurrency, rate limiting, and secure authentication.",
+      desc: "Robust RESTful APIs built focused on high concurrency, rate limiting, and secure authentication.",
       icon: "🛡️"
     },
     {
       title: "Performance Optimization",
-      desc: "Audit and fix slow legacy applications. I optimize database queries and reduce bundle sizes for 100/100 Lighthouse scores.",
+      desc: "Audit and fix slow legacy applications. I optimize database queries and reduce bundle sizes for better performance.",
       icon: "🚀"
     }
   ];
@@ -68,9 +68,6 @@
     "Hono": { bg: "#E36002" },
     "Go": { bg: "#00ADD8" },
     "PostgreSQL": { bg: "#336791" },
-    "SQL": { bg: "#336791" },
-    "Stripe": { bg: "#635BFF" },
-    "Supabase": { bg: "#3ECF8E" }
   };
 
   function getTechStyle(tech: string) {
@@ -274,7 +271,7 @@
           <p class="text-xs sm:text-sm font-bold tracking-widest mb-3 md:mb-4 text-projects uppercase">Fullstack Developer</p>
           <h1 id="hero-h" class="mb-4 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">Building Digital Products that Scale.</h1>
           <p id="hero-p" class="text-base sm:text-lg md:text-xl text-black/70 max-w-md mb-6 md:mb-8">
-            I help businesses build fast, secure, and maintainable web applications using the modern Go & Svelte stack.
+            I help businesses build fast, secure, and maintainable web applications using the modern web framework.
           </p>
           <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
             <a href="#contact" onclick={handleScroll} class="border border-black text-texts px-6 py-3 rounded-lg font-mono text-sm hover:bg-projects transition text-center hover:text-white">Start a Project</a>
@@ -299,11 +296,6 @@
               <!-- Subtle overlay on hover -->
               <div class="absolute inset-0 bg-projects opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
             </div>
-            
-            <!-- Tech stack indicator -->
-            <div class="absolute -bottom-3 -right-3 bg-white border-2 border-black rounded-full px-4 py-2 text-xs font-mono font-bold shadow-lg">
-              <span class="text-[#FF3E00]">Svelte</span> + <span class="text-[#E36002]">Hono</span>
-            </div>
           </div>
         </div>
       </section>
@@ -312,8 +304,8 @@
       <section id="about" class="flex min-h-[50vh] md:min-h-[55vh] justify-center items-center bg-about text-texts py-12 md:py-16 lg:py-20 border-t border-black/5">
         <div class="flex flex-col gap-4 md:gap-6 font-mono text-base sm:text-lg md:text-xl lg:text-2xl text-center max-w-4xl px-4 sm:px-6 md:px-8">
           <h1 class="about-h font-semibold text-black">I don't just write code; I solve business problems.</h1>
-          <h1 class="about-h text-black/70">While others rely on bloated frameworks, I specialize in the modern "performance-first" ecosystem.</h1>
-          <h1 class="about-h text-black/70">I use <span class="text-[#FF3E00] font-bold">SvelteKit</span> for instant page loads and <span class="text-[#00ADD8]">Go/<span class="text-[#E36002]">Hono</span></span> for backends that can handle thousands of users without crashing.</h1>
+          <h1 class="about-h text-black/70">I build fullstack web applications with a focus on clean architecture, performance, and reliability.</h1>
+          <h1 class="about-h text-black/70">From responsive frontends to scalable backend APIs, I choose the right tools for each project to deliver the best results.</h1>
           <h1 class="about-h text-black/70">My goal is simple: deliver software that is fast, secure, and easy to maintain.</h1>
         </div>
       </section>
