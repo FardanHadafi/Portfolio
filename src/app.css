@@ -1,18 +1,124 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+:root {
+  --c-bg: #f0f4f8;
+  --c-surface: #ffffff;
+  --c-surface-alt: #e2e8f0;
+
+  --c-text: #0a192f;
+  --c-text-heading: #0a192f;
+  --c-text-muted: #4a5568;
+  --c-border: #cbd5e1;
+  --c-card: #ffffff;
+
+  --c-accent: #0d9373;
+  --c-accent-hover: #0a7b5e;
+  --c-accent-light: #64ffda;
+  --c-accent-dim: rgba(13, 147, 115, 0.08);
+
+  --c-footer-bg: #0a192f;
+  --c-footer-text: #e2e8f0;
+}
+
+.dark {
+  --c-bg: #0a192f;
+  --c-surface: #112240;
+  --c-surface-alt: #112240;
+
+  --c-text: #ccd6f6;
+  --c-text-heading: #ccd6f6;
+  --c-text-muted: #8892b0;
+  --c-border: #233554;
+  --c-card: #112240;
+
+  --c-accent: #64ffda;
+  --c-accent-hover: #4ce0c0;
+  --c-accent-light: #64ffda;
+  --c-accent-dim: rgba(100, 255, 218, 0.07);
+
+  --c-footer-bg: #020c1b;
+  --c-footer-text: #e2e8f0;
+}
 
 @theme {
-  /* Define font families */
-  --font-sans: "Work Sans", system-ui, sans-serif;
+  --font-sans: "Inter", "Work Sans", system-ui, sans-serif;
   --font-mono: "Roboto Mono", ui-monospace, monospace;
 
-  --color-navbar: #fff5e4;
-  --color-hero: #ffe3e1;
-  --color-about: #ffd1d1;
-  --color-projects: #ff9494;
-  --color-texts: #562b08;
-  --color-h1: #ff5b5b;
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-surface-alt: var(--c-surface-alt);
+
+  --color-texts: var(--c-text);
+  --color-heading: var(--c-text-heading);
+  --color-muted: var(--c-text-muted);
+  --color-border: var(--c-border);
+  --color-card: var(--c-card);
+
+  --color-accent: var(--c-accent);
+  --color-accent-hover: var(--c-accent-hover);
+  --color-accent-light: var(--c-accent-light);
+  --color-accent-dim: var(--c-accent-dim);
+
+  --color-footer-bg: var(--c-footer-bg);
+  --color-footer-text: var(--c-footer-text);
+
+  --color-navbar: var(--c-surface);
+  --color-hero: var(--c-bg);
+  --color-about: var(--c-surface-alt);
+  --color-projects: var(--c-accent);
+  --color-h1: var(--c-accent-light);
 }
 
 body {
   font-family: var(--font-sans);
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.transition-transform,
+[class*="gsap"],
+.flex.transition-transform {
+  transition: transform 0.5s ease-out !important;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease !important;
+}
+
+.marquee-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.15);
 }
